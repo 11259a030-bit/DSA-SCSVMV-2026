@@ -1,6 +1,3 @@
-/* Experiment 3: Infix to Postfix Conversion using Stack
-   Case Study: Vidya College SIS - Converting the CGPA-computation formula
-   entered by faculty into postfix form for the result-processing engine */
 
 #include <stdio.h>
 #include <string.h>
@@ -10,7 +7,6 @@
 char stack[MAX];
 int top = -1;
 
-// Push operator onto stack
 void push(char c)
 {
     if (top >= MAX - 1)
@@ -21,9 +17,7 @@ void push(char c)
     stack[++top] = c;
 
 }
-
-// Pop operator from stack
-char pop()
+char pop()
 {
     if (top == -1)
     {
@@ -33,15 +27,14 @@ char pop()
     return stack[top--];
 }
 
-// Peek at top of stack
+
 char peek()
 {
     if (top == -1)
         return '\0';
     return stack[top];
 }
-
-// Get precedence of operator
+
 int precedence(char c)
 {
     if (c == '+' || c == '-')
@@ -53,7 +46,7 @@ int precedence(char c)
     return 0;
 }
 
-// Check if character is an operator
+
 int isOperator(char c)
 {
     return (c == '+' || c == '-' || c == '*' || c == '/' || c == '^');
@@ -73,7 +66,7 @@ void infixToPostfix(char infix[], char postfix[])
         // if(isalpha(c)
         if (!isOperator(c) && c != '(' && c != ')' && c != '[' && c != ']' && c != '{' && c != '}')
         {
-            // Add it directly to the postfix expression
+            
             postfix[j++] = c;
         }
 
